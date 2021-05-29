@@ -7,38 +7,35 @@ What still needs doing
     Finish designing the API format
         format the lists in to the correct JSON notation
 '''
-
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import json
+import re
 
 #Goes through table data to seperate the countries and adds them to a list
 def retCountries(countries):
     countriesList=[]
     tableBody=countries.find('tbody')
-
     for row in tableBody:
-        countriesRow=row.find('th')
-        if countriesRow!=-1:
-            #Could be replaced regex but not quite sure how to do it
-            country=str(countriesRow).replace('<th scope="row">','').split('<')[0]
-            countriesList.append(country)
+        val=re.findall(">(.*)<",str(row.find('th')))
+        #Empty lists would actually be (soon to be) updates to the list
+        if len(val)>0:
+            countriesList.append(val)    
     return countriesList
 
-colors=[]
 #Gets webpage and parses the HTMl
 url="https://www.gov.uk/guidance/red-amber-and-green-list-rules-for-entering-england"
 page=urlopen(url)
-html_bytes =page.read()
-html=html_bytes.decode("utf-8")
+html =page.read().decode("utf-8")
 soup = BeautifulSoup(html,"html.parser")
+
 #Seperates the 3 tables to its actual colors
 red,amber,green =soup.find_all("table")
 #adds all the colors in to a list so i can itr though them
-colors.extend((red,amber,green))
+colors= [red,amber,green]   
+
 for color in colors:
-    #Could be replaced regex but not quite sure how to do it
-    ColorValue=(str(color.find('th')).replace('<th scope="col">','').split('<')[0]).split(" ")[0]
+    ColorValue=str(re.findall(">(.*)<",str(color.find('th')))[0]).split()[0]
     print(ColorValue,'\t')
     print(retCountries(color),'\n')
     #Convert the lists in to valid JSON format (when I decide how to format the API)
