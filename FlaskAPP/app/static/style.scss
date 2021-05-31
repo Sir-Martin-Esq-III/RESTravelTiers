@@ -1,0 +1,37 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+    background-color:white;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Headder{
+    color :#2B59C3;
+}
+h1,h2,p{
+    font-family: 'Roboto', sans-serif;
+    color:white
+}
+
+.Container{
+    display: flex;
+    flex-direction: column;
+    background-color: #2B59C3;
+    width: 70vw;
+    height: 80vh; 
+    margin: 0vh 0 10vh 0;
+    padding: 2em;
+
+    .About {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        color: white
+       
+    };
+    
+}
