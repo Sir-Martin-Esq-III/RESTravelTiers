@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>RESTravelTiers</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1 class="Headder">RESTravelTier API </h1>
-    <div class="Container">
-        <div class="About">
-            <h2>About</h2>
-            <p class="content">This API is used for getting up to date information about the English travel restictions put in place by the UK govenment </p>
+        <h1>RESTravelTiers API</h1>
+        <div class="container">
+            <div class="about">
+                <h2 class="headding" id="about">About</h2>
+                    <p>This API can be used to get up to date information about the current English travel restictions put in place by the UK government which is linked <a href="https://www.gov.uk/guidance/red-amber-and-green-list-rules-for-entering-england">here</a></p> 
+            </div>
+            <div class="how-to-use">
+                <h2 class="headding">How to use</h2>
+                <div class="subcontent">
+                    <h4 class="subheadding">Making requests</h4>
+                    <p class="content">To make a requst is simple, just add the name of the country you want to retrive information from to the end of the url</p>
+                    <code>www.WHATEVERTHEURLIS/API/&lt;CountryName&gt;</code>
+                </div>
+                <div class="subcontent">
+                    <h4 class="subheadding">Input Params</h4>
+                    <p class="content">Currently the only supported input parameter is the name of the country,</p>
+                </div>
+                <div class="subcontent">
+                    <h4 class="subheadding">Output</h4>
+                    <p class="content">Upon a sucessful request the you should recive JSON in the following format </p>
+                    <code>Country &lbrace; tier :  "color" &rbrace;
+                    </code>
+                </div>
+            </div>
+            <div class="examples">
+                <h2 class="headding">Example</h2>
+                <div class="subContent">
+                    <p></p>
+                </div>
+            </div>
+            <div class="contact">
+                <h2 class="headding">Contact</h2>
+                <div class="subContent">
+                    <p>Should You wish to contact me please send me an email @ the following email adress</p>
+                </div>
+            </div>
         </div>
-        <div class ="How-To-Use">
-            <h2>How to use</h2>
-            <p class="content"></p>
-        </div>
-        <div class="Examples">
-            <h2>Examples</h2>
-            <p class="content"></p>
-        </div>
-
-        <div class="Other-stuff">
-            <h2></h2>
-            <p class="content"></p>
-        </div>
-    </div>
     
 </body>
 </html>
